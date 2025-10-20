@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Band-aidnano — Inovação Amazônica</title>
+    <link rel="shortcut icon" href="icones/favicon.ico" type="image/x-icon">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;700;800&display=swap" rel="stylesheet">
+
+    <style>
+        :root{
+            --verde-escuro:#0b4d36;
+            --verde:#0f7b57;
+            --bege:#f4efe6;
+            --marrom:#6b4f3a;
+            --accent:#c7e7d9;
+            --max-width:1100px;
+        }
+
+        *{box-sizing:border-box}
+        html,body{
+            height:100%;
+            margin:0;
+            font-family:'Nunito',Arial,Helvetica,sans-serif;
+            background:linear-gradient(180deg,#fbfbf9 0%, #f4f4f1 100%);
+            color:#213;
+        }
+        a{color:inherit}
+
+        /* Cabeçalho */
+        header{
+            background:rgba(11,77,54,0.98);
+            backdrop-filter:blur(4px);
+            position:sticky;
+            top:0;
+            z-index:40;
+        }
+        nav{
+            max-width:var(--max-width);
+            margin:0 auto;
+            display:flex;
+            align-items:center;
+            justify-content:space-between;
+            padding:14px;
+        }
+        .logo-nome-container{
+            display:flex;
+            align-items:center;
+            gap:12px;
+        }
+        .logo{
+            width:56px;
+            height:56px;
+            object-fit:cover;
+            border-radius:10px;
+            box-shadow:0 6px 18px rgba(11,77,54,0.2);
+        }
+        header h1{
+            color:#fff;
+            font-size:1.25rem;
+            margin:0;
+            font-weight:800;
+        }
+        .nav-links{
+            display:flex;
+            gap:18px;
+            align-items:center;
+        }
+        .nav-links a{
+            color:#dff3ea;
+            text-decoration:none;
+            padding:8px 10px;
+            border-radius:8px;
+            font-weight:700;
+            font-size:0.95rem;
+        }
+        .nav-links a:hover{background:rgba(255,255,255,0.06)}
+        .btn-cta{
+            background:var(--accent);
+            color:var(--verde-escuro);
+            padding:8px 12px;
+            border-radius:8px;
+            font-weight:800;
+        }
+
+        /* Hero */
+        .hero{
+            max-width:var(--max-width);
+            margin:28px auto;
+            padding:28px;
+            display:grid;
+            grid-template-columns:1fr 420px;
+            gap:28px;
+            align-items:center;
+        }
+        .hero-card{
+            background:linear-gradient(180deg,rgba(255,255,255,0.85),rgba(245,245,240,0.9));
+            padding:28px;
+            border-radius:18px;
+            box-shadow:0 10px 30px rgba(15,15,15,0.06);
+        }
+        .kicker{
+            display:inline-block;
+            background:var(--accent);
+            color:var(--verde-escuro);
+            padding:6px 10px;
+            border-radius:999px;
+            font-weight:800;
+            font-size:0.85rem;
+        }
+        .hero h2{color:var(--verde-escuro);margin:12px 0 8px;font-size:2rem}
+        .hero p{color:#264;line-height:1.55}
+        .hero-visual{
+            display:flex;
+            flex-direction:column;
+            gap:14px;
+            align-items:center;
+        }
+        .product-mock{
+            width:100%;
+            max-width:380px;
+            border-radius:14px;
+            box-shadow:0 14px 30px rgba(11,77,54,0.12);
+            overflow:hidden;
+            background:linear-gradient(180deg,var(--bege),#ffffff);
+        }
+        .product-mock img{width:100%;display:block}
+        .hero-features{display:flex;flex-direction:column;gap:10px;margin-top:10px}
+        .feature{display:flex;gap:12px;align-items:flex-start}
+        .feature .icon{
+            width:44px;
+            height:44px;
+            border-radius:10px;
+            background:var(--accent);
+            display:grid;
+            place-items:center;
+            font-weight:800;
+            color:var(--verde-escuro);
+        }
+        .feature p{margin:0;font-size:0.95rem}
+
+        /* Seções */
+        section.content{
+            max-width:var(--max-width);
+            margin:18px auto;
+            padding:26px;
+            background:transparent;
+        }
+        .card{
+            background:#fff;
+            padding:20px;
+            border-radius:12px;
+            box-shadow:0 6px 18px rgba(11,77,54,0.04);
+        }
+        .grid-2{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+        h3.section-title{color:var(--verde-escuro);margin:8px 0 12px}
+        p.lead{color:#334;line-height:1.6}
+
+        .equipe-container{
+            display:flex;
+            flex-wrap:wrap;
+            gap:18px;
+            justify-content:space-between;
+        }
+        .membro{
+            width:calc(33% - 12px);
+            background:linear-gradient(180deg,#fff,#fbfbfb);
+            padding:12px;
+            border-radius:12px;
+            text-align:center;
+        }
+        .membro img{
+            width:100%;
+            height:180px;
+            object-fit:cover;
+            border-radius:10px;
+        }
+        .membro h4{color:var(--marrom);margin:10px 0 2px;font-size:1rem}
+        .membro small{display:block;color:#546;}
+
+        /* Pesquisa */
+        .pesquisa-container{
+            display:grid;
+            grid-template-columns:repeat(3,1fr);
+            gap:12px;
+        }
+        .pesquisa-item{border-radius:10px;overflow:hidden}
+        .pesquisa-item img{width:100%;height:180px;object-fit:cover}
+        .pesquisa-item p{padding:8px;margin:0;background:#fff}
+
+        /* Bibliografia */
+        .bibliografia{columns:2;column-gap:28px;padding:0 6px}
+        .bibliografia li{break-inside:avoid;padding:8px 0;color:#444}
+
+        /* Contato */
+        .contact-grid{
+            display:grid;
+            grid-template-columns:1fr 360px;
+            gap:20px;
+            align-items:start;
+        }
+        .contact-card{padding:18px}
+        .social-list{display:flex;gap:8px;flex-wrap:wrap}
+        .social-list a{
+            background:#fff;
+            padding:8px 12px;
+            border-radius:999px;
+            display:inline-block;
+            text-decoration:none;
+            color:var(--verde-escuro);
+            font-weight:700;
+        }
+        form input,form textarea{
+            width:100%;
+            padding:10px;
+            border-radius:8px;
+            border:1px solid #ddd;
+            margin-bottom:10px;
+        }
+        form button{
+            background:var(--verde);
+            color:#fff;
+            padding:12px 14px;
+            border-radius:10px;
+            border:none;
+            font-weight:800;
+        }
+
+        footer{
+            margin-top:28px;
+            background:linear-gradient(180deg,#092a22,#073926);
+            color:#dff3ea;
+            padding:18px;
+        }
+        footer .wrap{
+            max-width:var(--max-width);
+            margin:0 auto;
+            display:flex;
+            justify-content:space-between;
+            align-items:center;
+            flex-wrap:wrap;
+            gap:10px;
+        }
+
+        /* Responsividade */
+        @media (max-width:1000px){.hero{grid-template-columns:1fr 320px}}
+        @media (max-width:860px){
+            .hero{grid-template-columns:1fr}
+            .grid-2{grid-template-columns:1fr}
+            .pesquisa-container{grid-template-columns:repeat(2,1fr)}
+            .membro{width:calc(50% - 12px)}
+            .contact-grid{grid-template-columns:1fr}
+            .bibliografia{columns:1}
+        }
+        @media (max-width:480px){
+            nav{padding:10px}
+            header h1{font-size:1rem}
+            .logo{width:44px}
+            .nav-links{display:none}
+            .hero h2{font-size:1.45rem}
+            .membro{width:100%}
+            .pesquisa-item img{height:140px}
+        }
+
+        /* Animações sutis */
+        .fade-in{animation:fade .9s ease both}
+        @keyframes fade{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+    </style>
+</head>
+
+<body>
+    <header>
+        <nav>
+            <div class="logo-nome-container">
+                <img src="assests/logonanocsm.png" alt="Logo Band-aidnano" class="logo">
+                <h1>nanotecnologia ifac csm</h1>
+            </div>
+            <div class="nav-links">
+                <a href="#sobre">Sobre</a>
+                <a href="#produto">O Produto</a>
+                <a href="#pesquisa">Pesquisa</a>
+                <a href="#contato" class="btn-cta">Contato</a>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <!-- HERO -->
+        <section class="hero">
+            <div class="hero-card fade-in">
+                <span class="kicker">Inovação Amazônica</span>
+                <h2>Band-aidnano — curativo biodegradável terapêutico feito com taboca</h2>
+                <p class="lead">Um curativo 100% biodegradável, livre de petrolatos, reforçado com nanopartículas de prata e nanoemulsões de óleos amazônicos (copaíba e andiroba) — pensado para acelerar a cicatrização e reduzir infecções com baixo impacto ambiental.</p>
+                <div class="hero-features">
+                    <div class="feature"><div class="icon">✅</div><p><strong>Biodegradável:</strong> material à base de taboca que não deixa resíduos plásticos.</p></div>
+                    <div class="feature"><div class="icon">🧪</div><p><strong>Farmacologia natural:</strong> nanoemulsões de copaíba e andiroba.</p></div>
+                    <div class="feature"><div class="icon">🦠</div><p><strong>Antimicrobiano:</strong> nanopartículas de prata em dosagem controlada.</p></div>
+                </div>
+                <div style="margin-top:18px;display:flex;gap:10px;align-items:center">
+                    <a href="#contato" class="btn-cta">Fale com a equipe</a>
+                    <a href="#pesquisa" style="color:var(--verde-escuro);font-weight:700;text-decoration:none">Ver estudos &rarr;</a>
+                </div>
+            </div>
+            <div class="hero-visual fade-in">
+                <div class="product-mock">
+                    <img src="assests/curativo biodegradavel.png" alt="Protótipo Band-aidnano">
+                </div>
+                <small style="color:#445;">Protótipo desenvolvido no IFAC — Sena Madureira</small>
+            </div>
+        </section>
+
+        <!-- SOBRE -->
+        <section id="sobre" class="content">
+            <div class="card">
+                <h3 class="section-title">Nossa História</h3>
+                <div class="grid-2">
+                    <div>
+                        <p>O Curativo nasceu de um projeto institucional no IFAC Campus Sena Madureira (ago/2023). Liderado pelo Dr. Marcelo Ramon e pelos discentes João Augusto, Arquelio, o projeto alia pesquisa em materiais biodegradáveis com nanotecnologia aplicada à saúde, em parceria com a rede Bionorte e a UFAC.</p>
+                        <h4 style="color:var(--verde);margin-top:12px">Propósito</h4>
+                        <p>Oferecer uma alternativa ecológica aos curativos convencionais — reduzindo resíduos plásticos e incorporando agentes terapêuticos naturais para acelerar a cicatrização e reduzir infecções.</p>
+                    </div>
+                    <div>
+                        <h4>Nosso Time</h4>
+                        <div class="equipe-container">
+                            <div class="membro">
+                                <img src="assests/Dr marcelo .jpg" alt="Marcelo Ramon">
+                                <h4>Marcelo Ramon Nunes</h4>
+                                <small>Docente de Química - IFAC</small>
+                            </div>
+                            <div class="membro">
+                                <img src="assests/joao a .jpg" alt="João Augusto">
+                                <h4>João Augusto</h4>
+                                <small>Discente - Informática</small>
+                            </div>
+                            <div class="membro">
+                                <img src="assests/jordana .jpg" alt="Jordana Raica">
+                                <h4>Jordana Raica</h4>
+                                <small>Discente - Informática</small>
+                            </div>
+                            <div class="membro">
+                                <img src="assests/arquelio2.jpg" alt="Arquelio ">
+                                <h4>Arquelio</h4>
+                                <small>Discente - Licenciatura em Fisica</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- PRODUTO -->
+        <section id="produto" class="content">
+            <div class="card">
+                <h3 class="section-title">O Protótipo</h3>
+                <p>Curativo feito a partir da taboca (bambu amazônico) processada para formar uma matriz flexível e biodegradável. Reforçado com nanopartículas de prata e nanoemulsão de óleos de copaíba e andiroba com ação antisséptica e anti-inflamatória.</p>
+                <div style="margin-top:14px;display:flex;gap:14px;flex-wrap:wrap;align-items:center">
+                    <ul style="padding-left:18px">
+                        <li>100% biodegradável e livre de petrolatos</li>
+                        <li>Dosagem controlada de nanopartículas de prata</li>
+                        <li>Nanoemulsão com liberação prolongada</li>
+                    </ul>
+                    <div style="flex:1;min-width:220px">
+                        <img src="assests/curativo biodegradavel.png" alt="Produto" style="width:100%;border-radius:10px;box-shadow:0 10px 24px rgba(11,77,54,0.08)">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- PESQUISA -->
+        <section id="pesquisa" class="content">
+            <div class="card">
+                <h3 class="section-title">Pesquisa & Estudos</h3>
+                <p>Conduzimos estudos de propriedades materiais da taboca, incorporação e caracterização de nanopartículas de prata, desenvolvimento de nanoemulsões de óleos amazônicos e testes de solubilidade/biodegradabilidade.</p>
+                <div class="pesquisa-container" style="margin-top:12px">
+                    <div class="pesquisa-item card">
+                        <img src="assests/imagem_analise_das_particulas .jpg" alt="Microscopia nanopartículas">
+                        <p>Microscopia eletrônica — nanopartículas de prata</p>
+                    </div>
+                    <div class="pesquisa-item card">
+                        <img src="assests/imagem_de_suspensão_aquosa.jpg" alt="Suspensão aquosa">
+                        <p>Suspensão aquosa de nanopartículas preparada pela equipe</p>
+                    </div>
+                    <div class="pesquisa-item card">
+                        <img src="assests/microscopia_celulose_da_taboca.jpg" alt="Microscopia da taboca">
+                        <p>Microscopia eletrônica da celulose de taboca (IFAL)</p>
+                    </div>
+                </div>
+                <h4 style="margin-top:18px">Principais etapas</h4>
+                <ol>
+                    <li>Processamento e caracterização da matriz de taboca;</li>
+                    <li>Síntese e caracterização de nanopartículas de prata;</li>
+                    <li>Formulação de nanoemulsão de óleos;</li>
+                    <li>Testes de solubilidade e biodegradabilidade.</li>
+                </ol>
+                <h4 style="margin-top:12px">Publicações & Referências</h4>
+                <div class="bibliografia">
+                    <ul class="bibliografia-list">
+                        <li>ABDULKHALEQ L. A. et al. The crucial roles of inflammatory mediators in inflammation. Veterinary World, 2018.</li>
+                        <li>ABDELHAMID, H. N.; MATHEW, A. P. Cellulose-Based Nanomaterials Advance Biomedicine. Int. J. Mol. Sci., 2022.</li>
+                        <li>ANTUNES-NETO, J. M. F.; SILVA, L. P.; MACEDO, D. V. Biomarcadores de estresse oxidativo. Rev. Bras. Ciência Mov, 2005.</li>
+                        <li>CASAO, T. R L. et al. Croton urucurana ointment accelerates wound closure. J. Ethnopharmacol., 2020.</li>
+                        <li>COSTA, M. A. R. et al. Total phenolics, total flavonoids and antioxidant activity. Enciclopédia Biosfera, 2017.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- CONTATO -->
+        <section id="contato" class="content">
+            <div class="card">
+                <h3 class="section-title">Contato</h3>
+                <div class="contact-grid">
+                    <div class="contact-card">
+                        <p>Se você quer saber mais, colaborar ou apoiar a distribuição do Curativo, entre em contato conosco.</p>
+                        <p><strong>E-mail:</strong> nano.ifac.csm@gmail.com</p>
+                        <p><strong>Telefone:</strong> +55 (68) 99600-3560</p>
+                        <h4 style="margin-top:12px">Redes sociais</h4>
+                        <div class="social-list">
+                            <a href="https://www.instagram.com/nanotecnologiaifac?igsh=MXFvMmZsNTNmZjR0NQ==">@nanotecnologiaifaccsm</a>
+        
+                        </div>
+                    </div>
+
+                    <form action="https://formspree.io/f/mqayozra" method="POST">
+                        <input type="text" name="name" placeholder="Seu nome" required>
+                        <input type="email" name="email" placeholder="Seu e-mail" required>
+                        <textarea name="message" rows="5" placeholder="Sua mensagem..." required></textarea>
+                        <button type="submit">Enviar Mensagem</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="wrap">
+            <p>© 2025 Curativo — Projeto IFAC Sena Madureira</p>
+            <p>Desenvolvido com 💚 no Acre</p>
+        </div>
+    </footer>
+</body>
+</html>
